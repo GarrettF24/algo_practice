@@ -26,30 +26,30 @@
 
 // }
 
-function charCount(str) {
-  let result = {}
+export default function charCount(str) {
+  let result = {};
   for (let char of str) {
     //         char = char.toLowerCase()
     //          if(char.match(/[0-9a-z]/g)) {
     if (isAlphaNumeric(char)) {
-      char = char.toLowerCase()
-      result[char] > 0 ? result[char]++ : (result[char] = 1)
+      char = char.toLowerCase();
+      result[char] > 0 ? result[char]++ : (result[char] = 1);
       //          result[char] = ++result[char] || 1
     }
   }
-  return result
+  return result;
 }
 
 function isAlphaNumeric(char) {
-  let code = char.charCodeAt(0)
+  let code = char.charCodeAt(0);
   if (
     !(code > 47 && code < 58) &&
     !(code > 64 && code < 91) &&
     !(code > 96 && code < 123)
   ) {
-    return false
+    return false;
   }
-  return true
+  return true;
 }
 
-console.log(charCount("Your PIN is 1234!"))
+console.log(charCount('Your PIN is 1234!'));
