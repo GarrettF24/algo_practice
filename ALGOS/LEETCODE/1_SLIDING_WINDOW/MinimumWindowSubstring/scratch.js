@@ -24,3 +24,9 @@
 //I need to iterate through the s string checking for instances of t string. I can
 //make a list of the length of a windows starting at first instance of t string within s string
 //and check the smallest length at the end.
+//have two pointers starting at 0. and a variable window to hold substring.
+//loop through string, push first letter of t found in s and begin from there, and - 1 from hashmap
+//continue adding all characters after and - 1 from hashmap for all characters until hash is empty.
+//move left pointer to the next instance of  a hash key in s.
+//continue process, if current window is less than window, window = currentwindow
+//return window.
