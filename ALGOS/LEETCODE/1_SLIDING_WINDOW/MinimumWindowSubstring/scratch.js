@@ -30,3 +30,64 @@
 //move left pointer to the next instance of  a hash key in s.
 //continue process, if current window is less than window, window = currentwindow
 //return window.
+
+// var minWindow = function(s, t) {
+//   let hash = {}
+//   let window = ''
+//   for(const val of t){
+//       hash[val] = (hash[val] || 0) + 1
+//   }
+
+//   let l = 0
+//   let r = 0
+
+//   while(r < s.length) {
+//       if(hash.hasOwnProperty(s[r])) {
+//           window += s[r]
+//           hash[s[r]]--
+//           if(hash[s[r]] === 0) delete hash[s[r]]
+//           console.log(hash)
+//       }
+
+//       r++
+//   }
+//   console.log(window)
+
+// };
+
+var minWindow = function (s, t) {
+  let hash = {},
+    start = 0,
+    matched = 0,
+    minLength = Infinity,
+    substrStart = 0;
+  for (const val of t) {
+    hash[val] = (hash[val] || 0) + 1;
+  }
+
+  for (let end = 0; end < s.length; end++) {
+    let right = s[end];
+    if (right in hash) {
+      hash[right]--;
+      if (hash[right] >= 0) matched++;
+    }
+    while (matched === t.length) {
+      if (minLength > end - start + 1) {
+        minLength = end - start + 1;
+        substrStart = start;
+      }
+      let left = s[start];
+      start++;
+      if (left in hash) {
+        if (hash[left] === 0) matched--;
+        hash[left]++;
+      }
+    }
+  }
+
+  return minLength > s.length ? '' : s.substring(substrStart, substrStart + minLength);
+};
+
+console.log(minWindow('ADOBECODEBANC', 'ABC'));
+
+module.exports = minWindow;
