@@ -25,3 +25,5 @@ var longestOnes = function (nums, k) {
 
   return right - left;
 };
+
+module.exports = longestOnes;
