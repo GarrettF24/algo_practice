@@ -13,14 +13,17 @@
 // Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
 // Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
-var longestOnes = function (nums, k) {
+//---Solution from Leetcode
+const longestOnes = (nums, k) => {
+  // left = start of window, right = end of window
+  //Right is variable holding number of zeroes turned to me.
   let left = 0;
   let right = 0;
   let zeros = 0;
 
   while (right < nums.length) {
-    if (nums[right++] == 0) zeros++;
-    if (zeros > k && nums[left++] == 0) zeros--;
+    if (nums[right++] === 0) zeros++;
+    if (zeros > k && nums[left++] === 0) zeros--;
   }
 
   return right - left;
