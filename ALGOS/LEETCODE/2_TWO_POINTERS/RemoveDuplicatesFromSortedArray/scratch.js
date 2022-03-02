@@ -6,4 +6,16 @@
 
 // Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 
-const removeDuplicates = (nums) => {};
+const removeDuplicates = (nums) => {
+  let start = nums[0];
+  let next = 1;
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] > start) {
+      nums[next++] = nums[i];
+      start = nums[i];
+    }
+  }
+
+  return start;
+};
