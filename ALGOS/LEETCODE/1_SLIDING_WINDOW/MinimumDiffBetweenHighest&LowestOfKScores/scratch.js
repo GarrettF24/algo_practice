@@ -13,9 +13,6 @@ var minimumDifference = function (nums, k) {
   let right = k - 1;
   while (right < nums.length) {
     let potentialMin = nums[right] - nums[left];
-    // if (potentialMin < minimum) {
-    //   minimum = potentialMin;
-    // }
     minimum = Math.min(minimum, potentialMin);
     left++;
     right++;
