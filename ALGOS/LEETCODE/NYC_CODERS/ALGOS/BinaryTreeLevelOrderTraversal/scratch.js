@@ -8,6 +8,7 @@
 // Space Complexity: O(N) for our answer array
 
 const levelOrder = (root) => {
+  if (root === null) return [];
   // create a queue
   let queue = [];
   //create array to hold each row
