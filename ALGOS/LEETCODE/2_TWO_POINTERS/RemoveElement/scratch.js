@@ -46,10 +46,10 @@ const removeElement = (nums, val) => {
       nums[start] = nums[end];
       end--;
     } else {
-      left++;
+      start++;
     }
   }
-  return left;
+  return start;
 };
 
 module.exports = removeElement;
